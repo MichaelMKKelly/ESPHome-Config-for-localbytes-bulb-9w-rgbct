@@ -19,11 +19,12 @@ These bulbs are solid and are one of the few easy to get, reasonably priced, and
 Whilst labled as a RGB+CT bulb, It is actually RGBWW Bulb and is a pretty standard device which we can build ESPhome targeting the ESP8266 (Specific board version: ESP8285).
 
 ## Features
+- Wi-Fi Provisioning.
+- IPv6 Support.
+- Full compatibility with Home Assistant without any other setup.
 - Full colour control as either RGB or as white with temperature control 3000-6000k.
 - Brightness control.
 - Power on state set as: On / Off / Last Known.
-- WiFi Provisioning.
-- IPv6 Support.
 - WebUI for direct control and OTA flashing.
 - Device status diagnostic sensors.
 - Factory Reset by power cycling 7 times within 10 seconds of each other.
