@@ -5,7 +5,7 @@ This repo contains an ESPHome config for the [Localbytes Bulb](https://www.myloc
 
 ## Why do this
 
-I prefer ESPHome to Tasmota for its customizability, Consistency, And more simple integration with Home Assistant as it does not require MQTT.
+I prefer ESPHome to Tasmota for its customisability, Consistency, And more simple integration with Home Assistant as it does not require MQTT.
 
 There is no official configuration from LocalBytes.
 
@@ -13,12 +13,20 @@ There is a Repo By [JamesSwift](https://github.com/JamesSwift) located [HERE](ht
 
 Therefore I decided to put together a modern config setup with newer features that builds without issue on a more up to date version of ESPHome.
 
-These bulbs are solid and are one of the few easy to get options that come in a B22 Version which is very common in the UK.
+These bulbs are solid and are one of the few easy to get, reasonably priced, and customisable options that come in a B22 Version which is very common in the UK.
 
 ## The Device
-Whilst labled as a RGB+CT bulb, It is actually RGBWW Bulb and is a pretty standard device which we can build ESPhome targeting the ESP8266 (Specifically board version: ESP8285).
+Whilst labled as a RGB+CT bulb, It is actually RGBWW Bulb and is a pretty standard device which we can build ESPhome targeting the ESP8266 (Specific board version: ESP8285).
 
 ## Features
+- Full colour control as either RGB or as white with temperature control 3000-6000k.
+- Brightness control.
+- Power on state set as: On / Off / Last Known.
+- WiFi Provisioning.
+- IPv6 Support.
+- WebUI for direct control and OTA flashing.
+- Device status diagnostic sensors.
+- Factory Reset by power cycling 7 times within 10 seconds of each other.
 
 ## Install Instructions
 - Connect Bulb to your wifi network
