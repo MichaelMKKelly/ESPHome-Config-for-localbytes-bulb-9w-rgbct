@@ -1,0 +1,31 @@
+substitutions:
+  name: "localbytes-bulb-9w-rgbct"
+  friendly_name: "LocalBytes RGBCT Bulb"  
+
+esphome:
+  name: "${name}"
+  name_add_mac_suffix: true
+  project:
+    name: localbytes-bulb-9w-rgbct (config by MichaelMKKelly)
+    version: "0.0.1"
+
+esp8266:
+  board: esp8285
+  restore_from_flash: true
+
+api:
+
+ota:
+  platform: esphome
+
+ap:
+  ssid: "${friendly_name}"
+  min_auth_mode: WPA
+
+factory_reset:
+  resets_required: 7
+  max_delay: 10s
+
+logger:
+
+captive_portal:
