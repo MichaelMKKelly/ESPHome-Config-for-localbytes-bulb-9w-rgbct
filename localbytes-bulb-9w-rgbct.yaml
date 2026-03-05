@@ -15,8 +15,38 @@ esphome:
   name: "${name}"
   name_add_mac_suffix: true
   project:
-    name: localbytes-bulb-9w-rgbct (config by MichaelMKKelly)
+    name: "MichaelMKKelly.localbytes-bulb-9w-rgbct"
     version: "0.0.1"
+  platformio_options:
+    board_upload.flash_size: 2MB
+    board_upload.maximum_size: 2097152
+    board_build.ldscript: eagle.flash.2m.ld
+  on_boot:
+      then:
+        - script.execute: fast_boot_script
+        - select.set_index:
+            id: power_mode
+            index: !lambda |-
+                    return id(restore_mode)-1;
+        - lambda: |-
+              switch(id(restore_mode))
+              {
+              case 1:{
+                      auto call = id(bulb).turn_off();
+                      call.perform();
+                      break;
+                      }
+              case 2:{
+                      auto call = id(bulb).turn_on();
+                      call.set_color_mode(ColorMode::WHITE);
+                      call.set_brightness(1.0);
+                      call.perform();
+                      break;
+                      }
+              default:{
+                      break;
+                      }
+              }
 
 esp8266:
   board: esp8285
@@ -43,6 +73,9 @@ factory_reset:
 logger:
 
 captive_portal:
+
+dashboard_import:
+  package_import_url: github://MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/localbytes-bulb-9w-rgbct.yaml
 
 web_server:
   port: 80
@@ -169,7 +202,7 @@ output:
 
 light:
   - platform: rgbww
-    name: none
+    name: "Lightbulb"
     id: bulb
     restore_mode: RESTORE_DEFAULT_ON
     warm_white: warm_white
@@ -201,3 +234,35 @@ text_sensor:
     id: device_last_restart
     icon: mdi:clock
     entity_category: diagnostic
+
+script:
+  - id: fast_boot_script
+    then:
+      - if:
+          condition:
+            lambda: return ( id(fast_boot) >= 3 );
+          then:
+            - lambda: |-
+                ESP_LOGD("localbytes-bulb-9w-rgbct.yaml", "Now the counter is greater than or equal to 3, perform reset device and reboot");
+                id(fast_boot) = 0;
+                fast_boot->loop();
+                global_preferences->sync();
+                auto call = id(bulb).turn_on();
+                call.set_transition_length(500);
+                call.set_brightness(1.0);
+                call.set_color_mode(ColorMode::RGB);
+                call.set_rgb(0.0, 0.0, 1.0);
+                call.perform();
+            - delay: 5s
+            - button.press: Reset
+      - lambda: |-
+          id(fast_boot) += 1;
+          fast_boot->loop();
+          global_preferences->sync();
+          ESP_LOGD("localbytes-bulb-9w-rgbct.yaml", "Now the counter is %d.  Reset the device when the counter is greater than or equal to 3", id(fast_boot));
+      - delay: 10s
+      - lambda: |-
+          ESP_LOGD("localbytes-bulb-9w-rgbct.yaml", "Reset counter");
+          id(fast_boot) = 0;
+          fast_boot->loop();
+          global_preferences->sync();
