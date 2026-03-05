@@ -18,8 +18,9 @@ api:
 ota:
   platform: esphome
 
-ap:
-  ssid: "${friendly_name}"
+wifi:
+  ap:
+    ssid: "${friendly_name}"
   min_auth_mode: WPA
 
 factory_reset:
@@ -29,3 +30,6 @@ factory_reset:
 logger:
 
 captive_portal:
+
+dashboard_import:
+  package_import_url: github://MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/localbytes-bulb-9w-rgbct.yaml
