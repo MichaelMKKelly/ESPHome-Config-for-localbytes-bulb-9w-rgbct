@@ -1,0 +1,178 @@
+substitutions:
+  sntp_update_interval: 6h
+  sntp_server_1: "0.pool.ntp.org"
+  sntp_server_2: "1.pool.ntp.org"
+  sntp_server_3: "2.pool.ntp.org"
+  timezone: ""
+  wifi_fast_connect: "false"
+  ipv6_enable: "false"
+  color_interlock: "true"
+  power_limit: 0.6
+
+
+packages:
+  minimal: !include minimal.yaml
+
+network:
+  enable_ipv6: ${ipv6_enable}
+
+wifi:
+  fast_connect: "${wifi_fast_connect}"
+
+web_server:
+  port: 80
+
+globals:
+  - id: fast_boot
+    type: int
+    restore_value: yes
+    initial_value: '0'
+
+  - id: restore_mode
+    type: int
+    restore_value: yes
+    initial_value: "1"
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: "${timezone}"
+    update_interval: ${sntp_update_interval}
+    servers:
+      - "${sntp_server_1}"
+      - "${sntp_server_2}"
+      - "${sntp_server_3}"
+    on_time_sync:
+      then:        
+        - if:
+            condition:
+              lambda: 'return id(device_last_restart).state == "";'
+            then:
+              - text_sensor.template.publish:
+                  id: device_last_restart
+                  state: !lambda 'return id(sntp_time).now().strftime("%a %d %b %Y - %I:%M:%S %p");'
+
+select:
+  - platform: template
+    name: "Power On State"
+    id: "power_mode"
+    optimistic: true
+    options:
+      - Always Off
+      - Always On
+      - Restore Power Off State
+    on_value:
+      then:
+        - lambda: |-
+            id(restore_mode)=i+1;
+
+binary_sensor:
+  - platform: status
+    name: "Status"
+    entity_category: diagnostic
+
+sensor:
+  - platform: wifi_signal
+    name: "WiFi Signal dB"
+    id: wifi_signal_db
+    update_interval: 60s
+    entity_category: "diagnostic"
+    disabled_by_default: true
+
+  - platform: copy
+    source_id: wifi_signal_db
+    name: "WiFi Signal Percent"
+    filters:
+      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
+    unit_of_measurement: "Signal %"
+    entity_category: "diagnostic"
+    device_class: ""
+    disabled_by_default: true
+
+button:
+  - platform: restart
+    name: "Restart"
+    entity_category: config
+
+  - platform: factory_reset
+    name: "Factory Reset"
+    id: Reset
+    entity_category: config
+    disabled_by_default: true
+
+  - platform: safe_mode
+    name: "Safe Mode"
+    internal: false
+    entity_category: config
+    disabled_by_default: true
+
+output:
+  - platform: esp8266_pwm
+    id: red
+    pin: GPIO4
+    min_power: 0.000499
+    max_power: ${power_limit}
+    zero_means_zero: true
+    
+  - platform: esp8266_pwm
+    id: green
+    pin: GPIO12
+    min_power: 0.000499
+    max_power: ${power_limit}
+    zero_means_zero: true
+    
+  - platform: esp8266_pwm
+    id: blue
+    pin: GPIO14
+    min_power: 0.000499
+    max_power: ${power_limit}
+    zero_means_zero: true
+    
+  - platform: esp8266_pwm
+    id: cold_white
+    pin: GPIO5
+    min_power: 0.000499
+    max_power: ${power_limit}
+    zero_means_zero: true
+    
+  - platform: esp8266_pwm
+    id: warm_white
+    pin: GPIO13
+    min_power: 0.000499
+    max_power: ${power_limit}
+    zero_means_zero: true
+
+light:
+  - platform: rgbww
+    name: none
+    id: bulb
+    restore_mode: RESTORE_DEFAULT_ON
+    warm_white: warm_white
+    cold_white: cold_white
+    red: red
+    green: green
+    blue: blue
+    
+    cold_white_color_temperature: 6000 K
+    warm_white_color_temperature: 3000 K
+    color_interlock: true
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "IP Address"
+      entity_category: diagnostic
+    ssid:
+      name: "Connected SSID"
+      entity_category: diagnostic
+    mac_address:
+      name: "Mac Address"
+      entity_category: diagnostic
+      disabled_by_default: true
+
+  
+  - platform: template
+    name: 'Last Restart'
+    id: device_last_restart
+    icon: mdi:clock
+    entity_category: diagnostic
