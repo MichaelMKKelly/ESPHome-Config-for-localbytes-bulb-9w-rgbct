@@ -1,2 +1,21 @@
 # ESPHome-Config-for-localbytes-bulb-9w-rgbct
 ESPHome configuration for the LocalBytes RGB+CT smart bulb.
+
+This repo contains an ESPHome config for the [Localbytes Bulb](https://www.mylocalbytes.com/products/smart-bulb-9w-rgbct).
+
+## Why do this
+
+There is no official configuration from LocalBytes.
+
+There is a Repo By [JamesSwift](https://github.com/JamesSwift) located [HERE](https://github.com/JamesSwift/localbytes-bulb-9w-rgbct) however this repo is older and gas not been updated to a modern version of ESPHome. I also had some issues with the release binaries.
+
+Therefore I decided to put together a modern config setup with newer features that builds without issue on a more up to date version of ESPHome.
+
+These bulbs are solid and are one of the few easy to get options that come in a B22 Version which is very common in the UK.
+
+## The Device
+Whilst labled as a RGB+CT bulb, It is actually RGBWW Bulb and is a pretty standard device which we can build ESPhome targeting the ESP8266 (Specifically board version: ESP8285).
+
+## Features
+
+## Install Instructions
