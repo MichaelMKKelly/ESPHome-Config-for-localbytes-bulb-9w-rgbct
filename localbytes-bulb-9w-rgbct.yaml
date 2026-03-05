@@ -1,19 +1,22 @@
 substitutions:
   name: "localbytes-bulb-9w-rgbct"
-  friendly_name: "LocalBytes RGBCT Bulb"  
+  friendly_name: "LocalBytes RGBCT Bulb"
+  device_comment: "ESPHome for LocalBytes Bulb, Firmware config by MichaelMKKelly"
   sntp_update_interval: 6h
   sntp_server_1: "0.pool.ntp.org"
   sntp_server_2: "1.pool.ntp.org"
   sntp_server_3: "2.pool.ntp.org"
   timezone: ""
   wifi_fast_connect: "false"
-  ipv6_enable: "false"
+  ipv6_enable: "true"
   color_interlock: "true"
-  power_limit: 0.6
+  power_limit: 1.0
 
 esphome:
   name: "${name}"
   name_add_mac_suffix: true
+  friendly_name: "${friendly_name}"
+  comment: "${device_comment}"
   project:
     name: "MichaelMKKelly.localbytes-bulb-9w-rgbct"
     version: "0.0.1"
