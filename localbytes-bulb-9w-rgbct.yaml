@@ -117,7 +117,7 @@ time:
 
 select:
   - platform: template
-    name: "Power On State"
+    name: "Power On Default State"
     id: "power_mode"
     optimistic: true
     options:
@@ -241,7 +241,7 @@ light:
       - random:
       - strobe:      
       - flicker:
-      
+
 text_sensor:
   - platform: wifi_info
     ip_address:
