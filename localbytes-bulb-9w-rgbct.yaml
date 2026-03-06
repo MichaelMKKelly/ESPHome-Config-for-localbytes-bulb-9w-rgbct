@@ -7,10 +7,12 @@ substitutions:
   sntp_server_2: "1.pool.ntp.org"
   sntp_server_3: "2.pool.ntp.org"
   timezone: ""
+  wifi_min_auth: "WPA"
   wifi_fast_connect: "false"
   ipv6_enable: "true"
   color_interlock: "true"
   power_limit: 1.0
+  
 
 esphome:
   name: "${name}"
@@ -63,7 +65,7 @@ ota:
 wifi:
   ap:
     ssid: "${friendly_name}"
-  min_auth_mode: WPA
+  min_auth_mode: "${wifi_min_auth}"
   fast_connect: "${wifi_fast_connect}"
 
 network:
