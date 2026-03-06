@@ -24,7 +24,18 @@ Whilst labled as a RGB+CT bulb, It is actually RGBWW Bulb and is a pretty standa
 - Full compatibility with Home Assistant without any other setup.
 - Full colour control as either RGB or as white with temperature control 3000-6000k.
 - Brightness control.
-- Power on state set as: On / Off / Last Known.
+- Lighting Effects:
+    - Pulse
+    - Fast Pulse
+    - Slow Pulse
+    - Asymmetrical Pulse
+    - Random
+    - Strobe
+    - Flicker
+- Power on state set as:
+    - On
+    - Off
+    - Last Known.
 - WebUI for direct control and OTA flashing.
 - Device status diagnostic sensors.
 - Factory Reset by power cycling 7 times within 10 seconds of each other.
