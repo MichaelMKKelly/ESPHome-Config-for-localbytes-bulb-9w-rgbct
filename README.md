@@ -33,9 +33,9 @@ Whilst labled as a RGB+CT bulb, It is actually RGBWW Bulb and is a pretty standa
     - Strobe
     - Flicker
 - Power on default state can be set as:
-    - On
-    - Off
-    - Last Known.
+    - Always Off
+    - Always On
+    - Restore Power Off State
 - WebUI for direct control and OTA flashing.
 - Device status diagnostic sensors.
 - Factory Reset by power cycling 7 times within 10 seconds of each cycle.
