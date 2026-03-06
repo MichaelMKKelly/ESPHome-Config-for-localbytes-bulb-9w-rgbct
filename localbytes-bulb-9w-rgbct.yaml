@@ -1,7 +1,7 @@
 substitutions:
   name: "localbytes-bulb-9w-rgbct"
   friendly_name: "LocalBytes RGBCT Bulb"
-  device_comment: "ESPHome for LocalBytes Bulb, Firmware config by MichaelMKKelly"
+  device_comment: "ESPHome for LocalBytes Bulb, Firmware config by MichaelMKKelly."
   sntp_update_interval: 6h
   sntp_server_1: "0.pool.ntp.org"
   sntp_server_2: "1.pool.ntp.org"
