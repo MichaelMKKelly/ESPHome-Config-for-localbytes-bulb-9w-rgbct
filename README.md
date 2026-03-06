@@ -32,7 +32,7 @@ Whilst labled as a RGB+CT bulb, It is actually RGBWW Bulb and is a pretty standa
     - Random
     - Strobe
     - Flicker
-- Power on state set as:
+- Power on state can be set as:
     - On
     - Off
     - Last Known.
