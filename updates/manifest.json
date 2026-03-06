@@ -1,14 +1,14 @@
 {
-  "name": "My ESPHome Project",
-  "version": "2024.6.1",
+  "name": "ESPHome for LocalBytes Bulb",
+  "version": "0.1.0",
   "builds": [
     {
-      "chipFamily": "ESP32-C3",
+      "chipFamily": "ESP8266",
       "ota": {
-        "md5": "1234567890abcdef1234567890abcdef",
-        "path": "/local/esp32c3/firmware.bin",
-        "release_url": "http://example.com/releases/10",
-        "summary": "Another update"
+        "md5": "fd42a31fa08aafaf2247260459e9a260",
+        "path": "https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/download/0.1.0/localbytes-bulb-9w-rgbct.bin",
+        "release_url": "https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/tag/0.1.0",
+        "summary": "Inital Release"
       }
     }
   ]
