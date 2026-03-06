@@ -6,7 +6,7 @@
       "chipFamily": "ESP8266",
       "ota": {
         "md5": "fd42a31fa08aafaf2247260459e9a260",
-        "path": "http://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/download/0.1.0/localbytes-bulb-9w-rgbct.bin",
+        "path": "https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/download/0.1.0/localbytes-bulb-9w-rgbct.bin",
         "release_url": "https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/tag/0.1.0",
         "summary": "Inital Release"
       }
