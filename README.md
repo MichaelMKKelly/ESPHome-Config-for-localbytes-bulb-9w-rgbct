@@ -38,7 +38,7 @@ Whilst labled as a RGB+CT bulb, It is actually RGBWW Bulb and is a pretty standa
     - Last Known.
 - WebUI for direct control and OTA flashing.
 - Device status diagnostic sensors.
-- Factory Reset by power cycling 7 times within 10 seconds of each other.
+- Factory Reset by power cycling 7 times within 10 seconds of each cycle.
 
 ## Install Instructions
 - Connect Bulb to your wifi network
