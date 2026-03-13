@@ -1,0 +1,10 @@
+substitutions:
+  minimal_only: "false"
+  main_yaml: !include
+    file: main.yaml
+packages:
+  minimal_yaml_file: !include minimal.yaml
+  main_yaml_file: ${ main_yaml if not minimal_only else {} }
+
+dashboard_import:
+  package_import_url: github://MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/base.yaml

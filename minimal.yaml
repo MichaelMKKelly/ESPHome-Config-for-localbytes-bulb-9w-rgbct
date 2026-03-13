@@ -1,22 +1,26 @@
 substitutions:
   name: "localbytes-bulb-9w-rgbct"
-  friendly_name: "LocalBytes RGBCT Bulb"  
+  friendly_name: "LocalBytes RGBCT Bulb"
+  device_comment: "ESPHome for LocalBytes Bulb, Firmware config by MichaelMKKelly."
+  wifi_min_auth: "WPA"
+  wifi_fast_connect: "false"
+  ipv6_enable: "true"
 
 esphome:
   name: "${name}"
   name_add_mac_suffix: true
-  friendly_name: "${friendly_name}"  
+  friendly_name: "${friendly_name}"
+  comment: "${device_comment}"
   project:
     name: "MichaelMKKelly.localbytes-bulb-9w-rgbct"
     version: "0.0.1"
-  platformio_options:
-    board_upload.flash_size: 2MB
-    board_upload.maximum_size: 2097152
-    board_build.ldscript: eagle.flash.2m.ld
+  min_version: 2025.12.0
 
 esp8266:
   board: esp8285
   restore_from_flash: true
+
+logger:
 
 api:
 
@@ -26,15 +30,22 @@ ota:
 wifi:
   ap:
     ssid: "${friendly_name}"
-  min_auth_mode: WPA
+  min_auth_mode: "${wifi_min_auth}"
+  fast_connect: "${wifi_fast_connect}"
+
+captive_portal:
 
 factory_reset:
   resets_required: 7
   max_delay: 10s
 
-logger:
+globals:
+  - id: fast_boot
+    type: int
+    restore_value: yes
+    initial_value: '0'
 
-captive_portal:
-
-dashboard_import:
-  package_import_url: github://MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/localbytes-bulb-9w-rgbct.yaml
+  - id: restore_mode
+    type: int
+    restore_value: yes
+    initial_value: "1"
