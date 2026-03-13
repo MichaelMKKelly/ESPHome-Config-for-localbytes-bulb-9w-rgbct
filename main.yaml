@@ -1,14 +1,5 @@
-substitutions:
-  sntp_update_interval: 6h
-  sntp_server_1: "0.pool.ntp.org"
-  sntp_server_2: "1.pool.ntp.org"
-  sntp_server_3: "2.pool.ntp.org"
-  timezone: ""
-  color_interlock: "true"
-  power_limit: 1.0
-
 ota:
-  platform: http_request
+  - platform: http_request
 
 http_request:
   verify_ssl: false

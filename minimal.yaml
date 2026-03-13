@@ -1,11 +1,3 @@
-substitutions:
-  name: "localbytes-bulb-9w-rgbct"
-  friendly_name: "LocalBytes RGBCT Bulb"
-  device_comment: "ESPHome for LocalBytes Bulb, Firmware config by MichaelMKKelly."
-  wifi_min_auth: "WPA"
-  wifi_fast_connect: "false"
-  ipv6_enable: "true"
-
 esphome:
   name: "${name}"
   name_add_mac_suffix: true
