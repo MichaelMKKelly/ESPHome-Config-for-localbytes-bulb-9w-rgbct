@@ -25,7 +25,7 @@ logger:
 api:
 
 ota:
-  platform: esphome
+  - platform: esphome
 
 wifi:
   ap:
