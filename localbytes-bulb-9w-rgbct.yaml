@@ -1,3 +1,5 @@
+##this file is obsolete and should not be used
+
 substitutions:
   name: "localbytes-bulb-9w-rgbct"
   friendly_name: "LocalBytes RGBCT Bulb"
