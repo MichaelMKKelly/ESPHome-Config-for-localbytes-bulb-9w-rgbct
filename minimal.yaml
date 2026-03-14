@@ -41,3 +41,6 @@ globals:
     type: int
     restore_value: yes
     initial_value: "1"
+
+web_server:
+  port: 80

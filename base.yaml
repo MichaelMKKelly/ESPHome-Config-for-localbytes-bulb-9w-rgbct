@@ -1,5 +1,19 @@
-substitutions:
-  minimal_only: "false"
+substitutions:  
+  name: "localbytes-bulb"  
+  friendly_name: "LocalBytes RGBCT Bulb"
+  device_comment: "ESPHome for LocalBytes Bulb, Firmware config by MichaelMKKelly."
+  wifi_min_auth: "WPA"
+  wifi_fast_connect: "false"
+  ipv6_enable: "true"
+  sntp_update_interval: 6h
+  sntp_server_1: "0.pool.ntp.org"
+  sntp_server_2: "1.pool.ntp.org"
+  sntp_server_3: "2.pool.ntp.org"
+  timezone: ""
+  color_interlock: "true"
+  power_limit: 1.0
+
+  minimal_only: false
   main_yaml: !include
     file: main.yaml
 packages:
