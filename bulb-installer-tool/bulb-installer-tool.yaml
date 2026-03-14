@@ -1,7 +1,7 @@
 substitutions:  
   name: "lb-bulb-installer" 
   friendly_name: "LocalBytes Bulb Installer"
-  version_number: "0.0.2"
+  version_number: "0.1.0"
   device_comment: "V${version_number} - Designed to install more useful Firmware - by MichaelMKKelly."
   wifi_min_auth: "WPA"
   ipv6_enable: "true"
@@ -14,7 +14,7 @@ esphome:
   project:
     name: "MichaelMKKelly.lb-bulb-installer"
     version: "${version_number}"
-  min_version: 2025.12.0
+  min_version: 2026.3.0
   on_boot: 
     then:
         - text_sensor.template.publish:

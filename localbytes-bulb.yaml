@@ -20,8 +20,8 @@ esphome:
   comment: "${device_comment}"
   project:
     name: "MichaelMKKelly.localbytes-bulb-9w-rgbct"
-    version: "0.0.2"
-  min_version: 2025.12.0
+    version: "0.1.0"
+  min_version: 2026.3.0
   on_boot:
       then:
         - script.execute: fast_boot_script
