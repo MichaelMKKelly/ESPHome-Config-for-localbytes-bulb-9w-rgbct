@@ -1,7 +1,7 @@
 substitutions:  
-  name: "lb-bulb-installer"  
+  name: "lb-bulb-installer" 
   friendly_name: "LocalBytes Bulb Installer"
-  device_comment: "V0.0.1 of an ESPHome firmware for the LocalBytes Bulb, Designed to install other more useful Firmware. Firmware config by MichaelMKKelly."
+  device_comment: "V0.0.1 - Designed to install more useful Firmware - by MichaelMKKelly."
   wifi_min_auth: "WPA"
   ipv6_enable: "true"
 
@@ -26,6 +26,26 @@ ota:
   - platform: esphome
   - platform: web_server
   - platform: http_request
+    on_begin: 
+      then:
+        - text_sensor.template.publish:
+            id: installer_status
+            state: "Starting..."
+    on_progress: 
+      then:
+        - text_sensor.template.publish:
+            id: installer_status
+            state: "In Progress..."  
+    on_end: 
+      then:
+        - text_sensor.template.publish:
+            id: installer_status
+            state: "Completed... Rebooting..."  
+    on_error: 
+      then:
+        - text_sensor.template.publish:
+            id: installer_status
+            state: "Error..."  
 
 wifi:
   ap:
@@ -38,6 +58,7 @@ safe_mode:
 
 web_server:
   port: 80
+  version: 3
 
 http_request:
   verify_ssl: False
@@ -47,26 +68,20 @@ text_sensor:
   - platform: template
     name: 'Status'
     id: installer_status
+    entity_category: 'diagnostic'
 
 button:
   - platform: template
     name: "Install Latest Version of this Installer"
     on_press: 
       then:
-        - text_sensor.template.publish:
-            id: installer_status
-            state: Attempting to Flash Latest Version of this Installeer. (Please Wait Patiently)   
         - ota.http_request.flash:
             url: https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/bulb-installer-tool/latest-binary/lb-bulb-installer.bin
             md5_url: https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/bulb-installer-tool/latest-binary/lb-bulb-installer.bin.md5
 
   - platform: template
-    name: "Install MichaelMKKelly's Localbytes Bulb Firmware"    
+    name: "Install MK's Localbytes Bulb FW"    
     on_press: 
-      then:
-        - text_sensor.template.publish:
-            id: installer_status
-            state: Attempting to Flash MK LB Firmware. (Please Wait Patiently)   
         - ota.http_request.flash:
             url: https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/download/0.2.0/localbytes-bulb.bin
             md5_url: https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/download/0.2.0/localbytes-bulb.bin.md5
@@ -74,10 +89,7 @@ button:
   - platform: template
     name: "Install Tasmota Lite 15.3.0"
     on_press: 
-      then:
-        - text_sensor.template.publish:
-            id: installer_status
-            state: Attempting to Flash Tasmota. (Please Wait Patiently)    
+      then:  
         - ota.http_request.flash:
             url: https://ota.tasmota.com/tasmota/release/tasmota-lite.bin
             md5: "4ad2d4b36790318c90976b4dd6fae4c7"
