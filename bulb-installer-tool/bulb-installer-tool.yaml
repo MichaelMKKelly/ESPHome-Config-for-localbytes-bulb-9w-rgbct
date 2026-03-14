@@ -1,7 +1,7 @@
 substitutions:  
   name: "lb-bulb-installer" 
   friendly_name: "LocalBytes Bulb Installer"
-  version_number: "0.1.0"
+  version_number: "0.3.0"
   device_comment: "V${version_number} - Designed to install more useful Firmware - by MichaelMKKelly."
   wifi_min_auth: "WPA"
   ipv6_enable: "true"

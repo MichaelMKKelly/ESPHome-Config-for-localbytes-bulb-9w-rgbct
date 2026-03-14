@@ -1,6 +1,7 @@
 substitutions:  
   name: "localbytes-bulb"  
   friendly_name: "LocalBytes RGBCT Bulb"
+  version_number: "0.3.0"
   device_comment: "ESPHome for LocalBytes Bulb, Firmware config by MichaelMKKelly."
   wifi_min_auth: "WPA"
   wifi_fast_connect: "false"
@@ -20,7 +21,7 @@ esphome:
   comment: "${device_comment}"
   project:
     name: "MichaelMKKelly.localbytes-bulb-9w-rgbct"
-    version: "0.1.0"
+    version: "${version_number}"
   min_version: 2026.3.0
   on_boot:
       then:
