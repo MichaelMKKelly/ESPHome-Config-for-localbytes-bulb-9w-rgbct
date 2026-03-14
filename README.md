@@ -1,3 +1,5 @@
+# WARNING: THIS REPO IS NOT READY FOR PUBLIC USE AT THIS TIME, MAY BRICK YOUR DEVICE.
+
 # ESPHome-Config-for-localbytes-bulb-9w-rgbct
 ESPHome configuration for the LocalBytes RGB+CT smart bulb.
 
