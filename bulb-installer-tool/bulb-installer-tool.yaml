@@ -84,8 +84,8 @@ button:
     name: "Install MK's Localbytes Bulb FW"    
     on_press: 
         - ota.http_request.flash:
-            url:  https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/bulb-installer-tool/localbytes-bulb.bin
-            md5_url: https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/bulb-installer-tool/localbytes-bulb.bin.md5
+            url:  https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/latest-binary/localbytes-bulb.bin
+            md5_url: https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/latest-binary/localbytes-bulb.bin.md5
 
   - platform: template
     name: "Install Tasmota Lite 15.3.0"
