@@ -5,8 +5,8 @@
     {
       "chipFamily": "ESP8266",
       "ota": {
-        "md5": "fd42a31fa08aafaf2247260459e9a260",
-        "path": "https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/raw/refs/heads/main/updates/localbytes-bulb-9w-rgbct.bin",
+        "md5": "acef5d1e1ad1a207ebda7e092d0114cf",
+        "path": "http://firmware.piez0r.com/updates/localbytes-bulb-full-dhcp.bin",
         "release_url": "https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/tag/0.1.0",
         "summary": "Inital Release"
       }
