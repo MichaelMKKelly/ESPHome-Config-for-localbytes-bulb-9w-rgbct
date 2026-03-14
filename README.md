@@ -5,7 +5,7 @@ ESPHome configuration for the LocalBytes RGB+CT smart bulb.
 
 This repo contains an ESPHome config for the [Localbytes Bulb](https://www.mylocalbytes.com/products/smart-bulb-9w-rgbct).
 
-The repo also contains an installer tool which may be useful to some and there is more information about below.
+The repo also contains an installer tool which may be useful to some. There is more information about it below.
 
 ## Why do this
 
