@@ -48,12 +48,63 @@ Whilst labled as a RGB+CT bulb, It is actually RGBWW Bulb and is a pretty standa
 - Factory Reset by power cycling 7 times within 10 seconds of each cycle.
 
 ## Install Instructions
+
+### Basic Instructions
 - Connect Bulb to your wifi network
 - Flash to tasmota-minimal
-- Flash to ESPHome
+- Flash to ESPHome Firmware
+
+### More Detailed Instructions
+This explanation is for a brand new bulb and for someone with no experience so skip around or adjust as needed.
+- Attach your new LocalBytes Bulb to power.
+- It will broadcast a Wi-Fi Access point. Connect to this and use its web UI on 192.168.4.1 to input your WiFi-Network Credentials. During this process it should note its new IP address and attempt to redirect you.
+- Once connected to your network and on the bulbs WebUI you are greeted with something like this:
+  
+  ![alt text](image.png)
+- Select "Firmware Upgrade"
+- We now want to move to "Tasmota Minimal" to ensure there is room on the bulb to be able to flash our new firmware.
+- in the "Upgrade by web server" section you should see the following URL:
+  `http://ota.tasmota.com/tasmota/release/tasmota.bin.gz`
+
+  You should change this by adding `-minimal` to the file name so it should now be:
+
+  `http://ota.tasmota.com/tasmota/release/tasmota-minimal.bin.gz`
+
+  Then press "Start Upgrade"
+- After a few moments you should be greeted with something like this:
+
+   ![alt text](image-1.png)
+
+   NB: Not directly related but worth noting that tasmota-minimal should only ever be flashed to a device already running tasmota like this. If you try and flash a minimal file to something not running tastmota it will brick the device and would require manual serial flashing. tasmota-lite is the smallest firmware to flash to a new device instead.
+- Now we are ready to flash our new firmware so once again press on "Firmware Upgrade".
+- Ensure you have the most recent localbytes-bulb.bin file from the releases section of this repo. (or lb-bulb-installer.bin if you are going that way instead - see below for more information)
+- This time in the "Use file upload" section press on "Browse" then select the correct .bin file and then press "Start upgrade".
+- After a moment the bulb will restart and disconnect from your Wi-Fi network
+- It should start broadcasting a new Wi-Fi access point (This time by ESPHome)
+- Connect to this and use its web UI on 192.168.4.1 to input your WiFi-Network Credentials.
+- Your now ESPHome Bulb shold not bne on your Wi-Fi Network.
+- Now with some luck on the devices and settings page of Home Assistant you should see this:
+
+  ![alt text](image-2.png)
+
+- Add your new Bulb and have a good time.
+- If it doesnt auto detect then you may have to manually add it to the ESPHome integration by IP address.
+
+# Upgrading to a New Version
+I was hoping to integrate a built in update system using the ESPHome update entity, However this is not currently practical due to the firmware size and limitations of the hardware.
+
+However if you browse to the bulbs WebUI. Either by browsing to its ip address directly or Home Assistant should have a "Visit" button on the device page. There is an OTA Update section:
+
+![alt text](image-3.png)
+
+This allows you to upload a new .bin file, In the future verions may have a built in update setup If firmware efficientcy can be made.
 
 # The Bulb Installer Tool
-Also In This Repo is a tool which once installed allows for you to download a selection of things on the device itself. This tool can also easily be flashed to from thee bulb's web interface on the ESPHome configuration above.
+Also In This Repo is a tool which once installed allows for you to download a selection of things on the device itself. This tool can also easily be flashed to from the bulb's web interface on the ESPHome configuration above.
+
+![alt text](image-4.png)
+
+Please note that the Bulb does not work as a bulb with this firmware active.
 
 Currently you can download and install:
 - The latest version fo the tool itself.
