@@ -1,7 +1,7 @@
 substitutions:  
   name: "localbytes-bulb"  
   friendly_name: "LocalBytes RGBCT Bulb"
-  version_number: "1.0.1"
+  version_number: "1.0.2"
   device_comment: "ESPHome for LocalBytes Bulb, Firmware config by MichaelMKKelly."
   wifi_min_auth: "WPA"
   wifi_fast_connect: "false"
@@ -35,7 +35,7 @@ esphome:
               {
               case 1:{
                       auto call = id(bulb).turn_off();                      
-                      call.set_color_mode(ColorMode::RGB_COLD_WARM_WHITE);
+                      call.set_color_mode(ColorMode::COLD_WARM_WHITE );
                       call.set_cold_white(1);
                       call.set_warm_white(0);
                       call.perform();
@@ -45,7 +45,7 @@ esphome:
                       auto call = id(bulb).turn_on();
                       call.set_brightness(1.0);
                       call.set_transition_length(500);
-                      call.set_color_mode(ColorMode::RGB_COLD_WARM_WHITE);
+                      call.set_color_mode(ColorMode::COLD_WARM_WHITE );
                       call.set_cold_white(1);
                       call.set_warm_white(0);
                       call.perform();
@@ -93,7 +93,7 @@ wifi:
     ssid: "${friendly_name}"
   min_auth_mode: "${wifi_min_auth}"
   fast_connect: "${wifi_fast_connect}"
-
+  
 network:
   enable_ipv6: "${ipv6_enable}"
 
@@ -315,7 +315,7 @@ script:
                 auto call = id(bulb).turn_on();
                 call.set_transition_length(500);
                 call.set_brightness(1.0);
-                call.set_color_mode(ColorMode::RGB_COLD_WARM_WHITE);
+                call.set_color_mode(ColorMode::COLD_WARM_WHITE );
                 call.set_cold_white(1);
                 call.set_warm_white(0);
 
