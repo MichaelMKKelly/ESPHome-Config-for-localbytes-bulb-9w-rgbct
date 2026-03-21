@@ -1,7 +1,7 @@
 substitutions:  
   name: "localbytes-bulb"  
   friendly_name: "LocalBytes RGBCT Bulb"
-  version_number: "1.0.2"
+  version_number: "1.0.3"
   device_comment: "ESPHome for LocalBytes Bulb, Firmware config by MichaelMKKelly."
   wifi_min_auth: "WPA"
   wifi_fast_connect: "false"
@@ -258,7 +258,8 @@ light:
     blue: blue    
     cold_white_color_temperature: 6000 K
     warm_white_color_temperature: 3000 K
-    color_interlock: "${color_interlock}"
+    constant_brightness: True
+    color_interlock: "${color_interlock}"    
 
     effects:
       - pulse:

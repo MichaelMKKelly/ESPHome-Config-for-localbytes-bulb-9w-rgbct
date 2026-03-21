@@ -1,14 +1,14 @@
 {
   "name": "ESPHome for LocalBytes Bulb",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "builds": [
     {
       "chipFamily": "ESP8266",
       "ota": {
-        "md5": "54d7ad49a4d23c7e26bd54ae57262f56",
+        "md5": "ade3951835b965bb9107b65724fa59de",
         "path": "https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/latest-binary/localbytes-bulb.bin.gz",
         "release_url": "https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/tag/1.0.0",
-        "summary": "1.0.2 Further update to boot scripts to prevent edge case that could overdrive bulb, Built on ESPHome 2026.3.0"
+        "summary": "1.0.3 Further Fixe to prevent edgecases overdriving the bulb, Built on ESPHome 2026.3.0"
       }
     }
   ]
