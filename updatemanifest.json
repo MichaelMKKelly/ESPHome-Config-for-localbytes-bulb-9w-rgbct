@@ -8,7 +8,7 @@
         "md5": "f610a3e052f1e29b92c2c8f71d4ac9f3",
         "path": "https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/latest-binary/localbytes-bulb.bin.gz",
         "release_url": "https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/tag/1.0.5",
-        "summary": "1.0.5 Update to ensure branch is referenced correctly to prevent issues if taking control, Built on ESPHome 2026.3.1"
+        "summary": "1.0.5 Update to ensure branch is referenced correctly to prevent issues when taking control, Built on ESPHome 2026.3.1"
       }
     }
   ]
