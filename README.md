@@ -47,14 +47,12 @@ Whilst labelled as a RGB+CT bulb, It is actually RGBWW Bulb and is a pretty stan
 - Device status diagnostic sensors.
 - Factory Reset by power cycling 7 times within 10 seconds of each cycle.
 - Option to Flash to the Installer Tool. See below for information. (Button disabled by default) NB: You will need to reconnect to your Wi-FI Network.
+- Route to return to stock firmware via Installer Tool. See below for more information and instructions.
 
 ## Wishlist Features that are not implemented
 
 ### WebUI for direct control via browser
 This is not currently able to be implemented due to limitations of the hardware, The firmware becomes too big. This may in theory be possible if I drop IPv6 Support but on balance I believe that IPv6 is more useful.
-
-### Button to return to stock LocalBytes Firmware
-Localbytes ship the bulb with an older version of Tasmota (11.1) that has a built-in Template. I have asked LocalBytes if they can make this firmware binary available so there can be potentially an option to return to stock. Hopefully it can be enabled in the main firmware but at the least it should hopefully be made available as an option in the Installer Firmware (information below).
 
 ## Install Instructions
 
@@ -103,6 +101,15 @@ This explanation is for a brand new bulb and for someone with no experience so s
 There is a built in update entity which should allow for easy updates using Home Assistant. For this to work the bulb must have access to the internet.
 
 There is also a button that is disabled by default in the diagnostic section called "Firmware - Flash Forced Update". This button will start a firmware install to the latest version which means reinstalling it if you are already on latest. This can be used if the normal update entity is not working. For this to work the bulb must have access to the internet.
+
+# Returning to LocalBytes Stock Firmware
+To do this you can use this procedure:
+- Use the feature to flash to the Installer Tool. See below for more information.
+- reconnect to your Wi-Fi Network.
+- Access the Installer Tool via its WebUI.
+- Press the button for "Install Stock LocalBytes Firmware".
+- Wait for it to flash.
+- The bulb should now be as it was when you got it out the box and ready to be connected to a Wi-Fi Network.
 
 # The Bulb Installer Tool
 Also In This Repo is a tool which once installed allows for you to download a selection of things on the device itself. This tool can also easily be flashed to from the bulb's web interface on the ESPHome configuration above.

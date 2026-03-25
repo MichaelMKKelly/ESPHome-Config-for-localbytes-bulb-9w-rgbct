@@ -1,7 +1,7 @@
 substitutions:  
   name: "lb-bulb-installer" 
   friendly_name: "LocalBytes Bulb Installer"
-  version_number: "1.0.5"
+  version_number: "1.1.0"
   device_comment: "V${version_number} - Designed to install more useful Firmware - by MichaelMKKelly."
   wifi_min_auth: "WPA"
   ipv6_enable: "true"
@@ -86,6 +86,14 @@ button:
         - ota.http_request.flash:
             url:  https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/latest-binary/localbytes-bulb.bin.gz
             md5_url: https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/latest-binary/localbytes-bulb.bin.gz.md5
+
+  - platform: template
+    name: "Install Stock LocalBytes Firmware"
+    on_press: 
+      then:
+        - ota.http_request.flash:
+            url: https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/localbytes-stock-firmware/bulb-tasmota.bin.gz
+            md5_url: https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/localbytes-stock-firmware/bulb-tasmota.bin.gz.md5
 
   - platform: template
     name: "Install Tasmota Lite 15.3.0"
