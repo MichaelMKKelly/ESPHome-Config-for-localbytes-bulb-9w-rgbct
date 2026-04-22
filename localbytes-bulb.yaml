@@ -1,7 +1,7 @@
 substitutions:  
   name: "localbytes-bulb"  
   friendly_name: "LocalBytes RGBCT Bulb"
-  version_number: "1.1.0"
+  version_number: "1.1.1"
   device_comment: "ESPHome for LocalBytes Bulb, Firmware config by MichaelMKKelly."
   wifi_min_auth: "WPA"
   wifi_fast_connect: "false"

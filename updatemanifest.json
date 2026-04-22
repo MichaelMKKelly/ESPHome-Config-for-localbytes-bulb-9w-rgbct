@@ -1,14 +1,14 @@
 {
   "name": "ESPHome for LocalBytes Bulb",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "builds": [
     {
       "chipFamily": "ESP8266",
       "ota": {
-        "md5": "d6c8c6aae7267002f58b2ca2356d641c",
+        "md5": "79be7765f496fa5c557a335d4b980b36",
         "path": "https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/latest-binary/localbytes-bulb.bin.gz",
-        "release_url": "https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/tag/1.1.0",
-        "summary": "1.1.0 Added route to return to stock firmware by flashing to installer which now has an option to flash stock firmware, Built on ESPHome 2026.3.1"
+        "release_url": "https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/tag/1.1.1",
+        "summary": "1.1.1 Updated to take advantage of optimisations in ESPHome 2026.4, Built on ESPHome 2026.4.1"
       }
     }
   ]
