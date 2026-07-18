@@ -1,14 +1,14 @@
 {
   "name": "ESPHome for LocalBytes Bulb",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "builds": [
     {
       "chipFamily": "ESP8266",
       "ota": {
-        "md5": "c74ece16ca093b80c063b853b281253f",
+        "md5": "a2c87e6764d26bc2ae280f23e3e7cb4b",
         "path": "https://michaelmkkelly.github.io/ESPHome-Config-for-localbytes-bulb-9w-rgbct/latest-binary/localbytes-bulb.bin.gz",
-        "release_url": "https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/tag/1.1.2",
-        "summary": "1.1.2 Updated to latest ESPHome, Built on ESPHome 2026.6.4"
+        "release_url": "https://github.com/MichaelMKKelly/ESPHome-Config-for-localbytes-bulb-9w-rgbct/releases/tag/1.1.3",
+        "summary": "1.1.3 Updated to take advantage of optimizations in ESPHome 2026.7, Built on ESPHome 2026.7.0"
       }
     }
   ]
